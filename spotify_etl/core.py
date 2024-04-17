@@ -17,7 +17,7 @@ from typing import List, Dict, Optional
 from spotipy.oauth2 import SpotifyClientCredentials
 from dotenv import load_dotenv
 
-# %% ../00_core.ipynb 7
+# %% ../00_core.ipynb 8
 def extract_streaming_history(
     data_folder: Path,  # Path to the folder containing the streaming history files
 ) -> Dict[str, pd.DataFrame]:  # Dictionary containing DataFrames for each year
@@ -67,7 +67,7 @@ def extract_streaming_history(
 
     return year_to_df
 
-# %% ../00_core.ipynb 9
+# %% ../00_core.ipynb 12
 def clean_streaming_history(
     streaming_history,  # Dictionary containing DataFrames for each year
     # Minimum percentage of the song that must be played to be included in the analysis
