@@ -67,15 +67,15 @@ def extract_streaming_history(
 
     return year_to_df
 
-# %% ../00_core.ipynb 12
+# %% ../00_core.ipynb 11
 def clean_streaming_history(
     streaming_history,  # Dictionary containing DataFrames for each year
     # Minimum percentage of the song that must be played to be included in the analysis
     min_percent_played: float = 0.9,
 ) -> pd.DataFrame:  # Streaming History DataFrame
     """
-    Clean the raw streaming history data
-    Standardize column names, remove non-song data, remove songs that were not played to completion
+    Clean the raw streaming history data, standardize column names,
+    remove podcast data, remove songs that were not played to completion
     """
     clean_streaming_history = pd.DataFrame()
     for k in streaming_history.keys():
@@ -116,8 +116,7 @@ def clean_streaming_history(
     # Approixmate the song duration, add to the dataframe
     approximate_durations = (
         clean_streaming_history.loc[
-            clean_streaming_history.reason_end == "trackdone", [
-                "track_id", "ms_played"]
+            clean_streaming_history.reason_end == "trackdone", ["track_id", "ms_played"]
         ]
         .groupby("track_id")["ms_played"]
         .agg(lambda x: x.mode()[0])
@@ -135,8 +134,7 @@ def clean_streaming_history(
 
     # Adding percent was played and filtering by the given value
     clean_streaming_history["percent_played"] = clean_streaming_history.apply(
-        lambda row: row["ms_played"] /
-        row["duration"] if row["duration"] != 0 else 0,
+        lambda row: row["ms_played"] / row["duration"] if row["duration"] != 0 else 0,
         axis=1,
     )
 
