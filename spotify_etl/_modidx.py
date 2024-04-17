@@ -5,4 +5,6 @@ d = { 'settings': { 'branch': 'master',
                 'doc_host': 'https://LearnThinkCreate.github.io',
                 'git_url': 'https://github.com/LearnThinkCreate/spotify-etl',
                 'lib_path': 'spotify_etl'},
-  'syms': {'spotify_etl.core': {'spotify_etl.core.foo': ('core.html#foo', 'spotify_etl/core.py')}}}
+  'syms': { 'spotify_etl.core': { 'spotify_etl.core.clean_streaming_history': ('core.html#clean_streaming_history', 'spotify_etl/core.py'),
+                                  'spotify_etl.core.extract_streaming_history': ( 'core.html#extract_streaming_history',
+                                                                                  'spotify_etl/core.py')}}}
