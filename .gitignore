@@ -152,3 +152,4 @@ checklink/cookies.txt
 
 /.quarto/
 streaming_history/*
+data/*
