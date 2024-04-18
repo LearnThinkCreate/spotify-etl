@@ -18,6 +18,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from dotenv import load_dotenv
 
 # %% ../00_core.ipynb 8
+# |code-fold: true
 def extract_streaming_history(
     data_folder: Path,  # Path to the folder containing the streaming history files
 ) -> Dict[str, pd.DataFrame]:  # Dictionary containing DataFrames for each year
@@ -60,14 +61,14 @@ def extract_streaming_history(
 
         # Append the DataFrame to the existing DataFrame for the year, or create a new entry
         if year in year_to_df:
-            year_to_df[year] = pd.concat(
-                [year_to_df[year], df], ignore_index=True)
+            year_to_df[year] = pd.concat([year_to_df[year], df], ignore_index=True)
         else:
             year_to_df[year] = df
 
     return year_to_df
 
 # %% ../00_core.ipynb 11
+# |code-fold: true
 def clean_streaming_history(
     streaming_history,  # Dictionary containing DataFrames for each year
     # Minimum percentage of the song that must be played to be included in the analysis
@@ -116,7 +117,8 @@ def clean_streaming_history(
     # Approixmate the song duration, add to the dataframe
     approximate_durations = (
         clean_streaming_history.loc[
-            clean_streaming_history.reason_end == "trackdone", ["track_id", "ms_played"]
+            clean_streaming_history.reason_end == "trackdone", [
+                "track_id", "ms_played"]
         ]
         .groupby("track_id")["ms_played"]
         .agg(lambda x: x.mode()[0])
@@ -134,7 +136,8 @@ def clean_streaming_history(
 
     # Adding percent was played and filtering by the given value
     clean_streaming_history["percent_played"] = clean_streaming_history.apply(
-        lambda row: row["ms_played"] / row["duration"] if row["duration"] != 0 else 0,
+        lambda row: row["ms_played"] /
+        row["duration"] if row["duration"] != 0 else 0,
         axis=1,
     )
 
