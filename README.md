@@ -66,7 +66,7 @@ to find a way to tell that story.
 Like many websites, Spotify [provides users with access to their
 data](https://support.spotify.com/us/article/data-rights-and-privacy-settings/?ref=related).
 While it’s amazing this dataset exists, it’s not entirely useful in
-itself. See the dictionary below from a example record from 2017
+itself. See the dictionary below for a example record from 2017 <br>
 
     {'ts': '2017-04-22T21:43:11Z',
      'username': 1241589622,
@@ -102,10 +102,10 @@ That’s all solid information but it has no depth. It doesn’t help me
 tell my story.
 
 It’s missing crucial metadata about the song like its energy, genre, and
-release data. In order to find all this information another tool is
+release date. In order to find all this information another tool is
 required: [the spotify
 api](https://developer.spotify.com/documentation/web-api/reference/get-track).
-The API has (most) of the information. See below
+The API has (most) of the information. See below <br>
 
 ``` python
 track = sp.track("0jkeRqlWciqKxU3iHQfdWj")
@@ -206,7 +206,7 @@ sp.artist("4yBK75WVCQXej1p04GWqxH")
      'uri': 'spotify:artist:4yBK75WVCQXej1p04GWqxH'}
 
 Throughout these notebooks I transform my original spotify data from a
-bunch or json files to a series of database tables and a materialized
-view that enables me to build a website to display my history.
+bunch of json files to database tables and a materialized view that
+enabled me to build a website.
 
 And I’m only getting started…
