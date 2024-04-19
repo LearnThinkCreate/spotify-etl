@@ -3,8 +3,6 @@
 > Extract Spotify History and Inject into DB for use in [my NextJS
 > website](https://spotify-dashboard-sandy.vercel.app/)
 
-![spotify history dashboard](images/spotify_history.png)
-
 ::: {.cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}
 
 ``` python
