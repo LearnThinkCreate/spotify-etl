@@ -145,7 +145,7 @@ def clean_streaming_history(
 
     return clean_streaming_history
 
-# %% ../00_Pull_History.ipynb 85
+# %% ../00_Pull_History.ipynb 84
 def get_pickle_data(path: Path) -> Dict:
     if path.exists():
         with open(path, "rb") as f:
@@ -153,7 +153,7 @@ def get_pickle_data(path: Path) -> Dict:
     else:
         return {}
 
-# %% ../00_Pull_History.ipynb 88
+# %% ../00_Pull_History.ipynb 87
 def save_pickle_data(data: Dict, path: Path) -> None:
     with open(path, "wb") as f:
         pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)
